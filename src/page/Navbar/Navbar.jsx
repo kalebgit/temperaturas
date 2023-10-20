@@ -12,19 +12,21 @@ import { Button, ButtonGroup, IconButton, List } from "@mui/material";
 //styles
 import './Navbar.scss'
 import { Link } from "react-router-dom";
+import { createPortal } from "react-dom";
+import Effect from "../Effect/Effect";
 function Navbar(){
     const [isShown, setIsShown] = useState(false);
 
 
     return (
-        <header className="sticky w-40 ">
+        <header className="sticky w-40 p-2">
             <section>
                 <IconButton size="large" onClick={()=>{
                     setIsShown((prevState)=>{
                         return !prevState;
                     })
                 }}>
-                    <ListIcon fontSize="large"/>
+                    <ListIcon style={{ fontSize: '3rem' }}/>
                 </IconButton>
                 
             </section>
@@ -33,14 +35,15 @@ function Navbar(){
                 items-start nav ${isShown ? "nav__appear" : "nav__disappear"}`}>
                     <Link to="/" className="w-full"
                             >
-                        <Button startIcon={<HomeIcon fontSize="large"/>}
+                        <Button startIcon={<HomeIcon style={{ fontSize: '2rem' }}/>}
                                 className="w-full"
                             >
                                 Home
                             </Button>
                     </Link>        
                     <Link to="/simulation" className="w-full">
-                        <Button startIcon={<ScienceRoundedIcon fontSize="large"/>}
+                        <Button startIcon={<ScienceRoundedIcon 
+                        style={{ fontSize: '2rem' }}/>}
                             className="w-full"
                             >
                             Simulacion
@@ -48,6 +51,9 @@ function Navbar(){
                     </Link>
                 </section>
             </nav>
+            {isShown ? 
+                createPortal(<Effect blur/>, document.getElementById("backdrop-effect")): 
+                <></>}
         </header>
     )
 }

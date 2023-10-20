@@ -6,6 +6,7 @@ function Root(){
         <>
             <Navbar/>
             <Outlet/>
+            <div id="backdrop-effect"></div>
         </>
     )
 }

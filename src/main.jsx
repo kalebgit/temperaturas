@@ -5,13 +5,18 @@ import './index.scss'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Root from './routes/Root/Root.jsx'
+import Home from './routes/Home/Home'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root/>,
     children: [
-
+      {
+        path: "/",
+        element: <Home/>
+      }
+      
     ]
   }
 ])
