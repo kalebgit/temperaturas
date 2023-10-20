@@ -6,6 +6,7 @@ import './index.scss'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Root from './routes/Root/Root.jsx'
 import Home from './routes/Home/Home'
+import Simulation from './routes/Simulation/Simulation'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home/>
+      },
+      {
+        path: "/simulation", 
+        element: <Simulation/>
       }
       
     ]

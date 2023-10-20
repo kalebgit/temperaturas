@@ -17,15 +17,16 @@ import Effect from "../Effect/Effect";
 function Navbar(){
     const [isShown, setIsShown] = useState(false);
 
+    const onChange = ()=>{
+        setIsShown((prevState)=>{
+            return !prevState;
+        })
+    }
 
     return (
         <header className="sticky w-40 p-2">
             <section>
-                <IconButton size="large" onClick={()=>{
-                    setIsShown((prevState)=>{
-                        return !prevState;
-                    })
-                }}>
+                <IconButton size="large" onClick={onChange}>
                     <ListIcon style={{ fontSize: '3rem' }}/>
                 </IconButton>
                 
@@ -37,7 +38,7 @@ function Navbar(){
                             >
                         <Button startIcon={<HomeIcon style={{ fontSize: '2rem' }}/>}
                                 className="w-full"
-                            >
+                            onClick={onChange}>
                                 Home
                             </Button>
                     </Link>        
@@ -45,7 +46,7 @@ function Navbar(){
                         <Button startIcon={<ScienceRoundedIcon 
                         style={{ fontSize: '2rem' }}/>}
                             className="w-full"
-                            >
+                            onClick={onChange}>
                             Simulacion
                         </Button>
                     </Link>
